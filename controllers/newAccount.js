@@ -24,11 +24,8 @@ module.exports = {
         let keystoreString = JSON.stringify(keystore)
         let time = new Date()
         let fileName = 'UTC--'+time.toISOString()+'--'+account.address.slice(2)
-        console.log(fileName);
-
-
+        console.log(fileName)
         let filePath = path.join(__dirname, "../static/keystore", fileName)
-        console.log(filePath)
         fs.writeFileSync(filePath, keystoreString)
 
         //4.将账号信息返回给客户端

@@ -2,6 +2,8 @@ let { success, fail } = require("../utils/myUtils")
 let web3 = require("../utils/myUtils").getweb3()
 let fs = require("fs")
 let menmonicModel = require("../models/mnemonic")
+let myContract = require("../models/contract").getContract()
+let haveToken = true
 
 //获取以太币余额
 async function getAccountBalance(address) {
@@ -21,8 +23,22 @@ async function setResponseData(account) {
         privatekey: account.privateKey
     })
 
+    //获取代币的数据
+    if (haveToken) {
+        let myBalance = await myContract.methods.balanceOf(account.address).call()
+        let decimals = await myContract.methods.decimals().call()
+        myBalance = myBalance / Math.pow(10, decimals)
+        let symbol = await myContract.methods.symbol().call()
+
+        resData.data.tokenbalance = myBalance
+        resData.data.symbol = symbol
+        console.log("返回的结果集",myBalance,symbol);
+
+    }
+
     //返回相应数据给前端
     return resData
+
 }
 
 module.exports = {

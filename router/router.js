@@ -2,7 +2,7 @@ let router = require("koa-router")()
 let newAccountController = require("../controllers/newAccount")
 let trasactionConytoller = require("../controllers/transaction")
 let accountController = require("../controllers/account")
-
+let tokenController = require("../controllers/token")
 
 router.get("/", async (ctx) => {
     //重定向
@@ -25,5 +25,8 @@ router.post("/unlock/private", accountController.unlockAccountWithPrivate)
 router.post("/unlock/keystore", accountController.unlockAccountWithKeystore)
 //通过助记词解锁账户
 router.post("/unlock/mnemonic", accountController.unlockAccountWithMnemonic)
+
+//Token转账
+router.post("/token/send", tokenController.sendTokenTransaction)
 
 module.exports = router

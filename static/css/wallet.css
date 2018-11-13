@@ -1,13 +1,53 @@
 #main{
-    /*background-color: #8bc34a;*/
+   /* background-color: #8bc34a;*/
     margin: 100px 50px 50px 50px;
+}
+#zyb{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    /*background: url("../demo-1-bg.jpg") no-repeat;*/
+    z-index: 0;
+    overflow:hidden; word-break:break-all;
+    background-size:cover;
+}
+#z{
+
+    /*background:rgba(0, 0, 0, 0);*/
+
+    text-align:center;
+    width: 300px;
+    height: 50px;
+    border-radius:30px;
+}
+input::-webkit-input-placeholder{
+    color: #417fbc;
+    font-size: 1rem;
+    text-align:center;
+}
+#login-button { /* 按钮美化 */
+    width: 150px; /* 宽度 */
+    height: 40px; /* 高度 */
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 30px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    font-family: Microsoft YaHei; /* 设置字体 */
+    color: lightgoldenrodyellow; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+
 
 }
+
+
 .error{
     color: red;
 }
 a{
-    color: black;
+    color: #eeffea;
     text-decoration: none;
 }
 a:hover{
@@ -20,20 +60,38 @@ body{
     color: #0abc9c;
 }
 a[class=button]{
-    background-color: beige;
+    background-color: #000000;
     padding: 2px 10px;
     border: 1px solid gray;
 }
 
-/*导航-------------------------------------------------------------------------------------------------------*/
-#nav{
-    display: flex;
-    justify-content: space-between;
-    background-color: #0abc9c;
-    position: fixed;
+#b{
+    text-align:center;
     top: 0px;
     left: 0px;
     right: 0px;
+    display: flex;
+    position: fixed;
+
+}
+#ziti{
+    color: gold;
+    letter-spacing: 0;
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+    text-align:center;
+}
+
+
+/*导航-------------------------------------------------------------------------------------------------------*/
+#nav{
+    display: flex;
+    /*justify-content: space-between;*/
+    background: url("../demo-1-bg.jpg");
+    /*position: fixed;*/
+    top: 0px;
+    left: 0px;
+    right: 0px;
+
 }
 #nav li{
     display: inline-block;

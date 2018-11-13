@@ -6,6 +6,7 @@
     <script src="/js/lib/jquery.url.js"></script>
     <script src="/js/wallet.js"></script>
     <link rel="stylesheet" href="/css/wallet.css">
+  <!--  <script type="text/javascript" src="/jquery-easyui/jquery.min.js"></script>-->
 </head>
 
 <body>
@@ -66,7 +67,7 @@
                     <input type="text" name="number">
                     <select id="send-transaction-token-type">
                         <option value="1">ETH</option>
-                        <option value="2" id="send-transaction-token-symbol"></option>
+                        <option value="2" id="send-transaction-token-symbol">ZYB</option>
                     </select>
                 </div>
                 <input name="fromaddress" hidden="hidden">
@@ -83,6 +84,9 @@
             <div>
                 <span>账户余额：</span>
                 <span id="account-balance"></span>
+                <br>
+                <span>Token余额：</span>
+                <span id="account-token-info"></span>
             </div>
         </div>
         <br>
