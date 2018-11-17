@@ -14,7 +14,7 @@ module.exports = {
 
         let decimals = await myContract.methods.decimals().call()
        // let balance = number * Math.pow(10, decimals)
-        let balance = number;
+        let balance = number
 
         let myBalance = await myContract.methods.balanceOf(fromaddress).call()
         if (myBalance < balance) {

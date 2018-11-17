@@ -8,8 +8,9 @@ let path = require("path")
 let views = require("koa-views")
 let koaBody = require("koa-body")
 
+
 app.use(async (ctx, next) => {
-    console.log(`${ctx.method} ${ctx.url} ..........`)
+    console.log(`${ctx.method} ${ctx.url} zhuyanbing`)
     await next()
 })
 

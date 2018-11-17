@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代币空投</title>
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <script src="js/lib/jquery.url.js"></script>
+    <script src="js/wallet.js"></script>
+    <link rel="stylesheet" href="css/wallet.css">
+</head>
+<body>
+    <div id="nav">
+        <script>
+            $("#nav").load("html/nav.html")
+        </script>
+    </div>
+    <div id="main">
+        <div align="center"> <!-- 表格居中 -->
+        <h1 id="ziti">shpcoin代币空投</h1>
+
+        <input id="z" type="text" id="txHash">
+        <button id="login-button" onclick="queryTransaction()">一键空投</button>
+
+        <!-- 用于显示代码块 -->
+        <pre id="transactionInfo"></pre>
+        </div>
+    </div>
+</body>
+</html>

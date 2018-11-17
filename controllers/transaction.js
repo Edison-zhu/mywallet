@@ -2,10 +2,21 @@ let { success, fail } = require("../utils/myUtils")
 let web3 = require("../utils/myUtils").getweb3()
 
 module.exports = {
+    //获取转账页面
     transactionHtml: async (ctx) => {
         await ctx.render("transaction.html")
     },
-
+    //获取查询hash页面
+    queryTransactionHtml: async (ctx) => {
+        await ctx.render("queryTransaction.html")
+    },
+    //获取首页
+    homeHtml: async (ctx)=>{
+        await ctx.render("home.html")
+    },
+    airdropHtml: async (ctx)=>{
+        await ctx.render("airdrop.html")
+    },
     sendTransaction: async (ctx) => {
         let { fromaddress, toaddress, number, privatekey } = ctx.request.body
         console.log(JSON.stringify(ctx.request.body))
@@ -54,4 +65,22 @@ module.exports = {
 
         ctx.body = responseData
     },
+
+    queryTransaction: async (ctx) => {
+        var txHash = ctx.request.body.txHash
+        console.log("请求的页面:"+txHash)
+        await web3.eth.getTransaction(txHash, function (err, res) {
+            if (err) {
+                responseData = fail(err)
+            }
+        }).then(function(res){
+            if (res) {
+                responseData = success(res)
+            }else {
+                responseData = fail("查询失败")
+            }
+        })
+        ctx.response.body = responseData
+
+    }
 }

@@ -140,3 +140,16 @@ $(document).ready(function () {
         }
     })
 })
+//查询交易详情
+function queryTransaction() {
+    var txHash = $("#txHash").val()
+    $.post("/queryTransaction", "txHash=" + txHash, function (res, status) {
+        console.log(status + JSON.stringify(res))
+        if (res.code == 0) {
+            alert("查询成功")
+            $("#transactionInfo").text(JSON.stringify(res.data, null, 4))
+        } else {
+            alert("查询失败")
+        }
+    })
+}

@@ -4,7 +4,7 @@ module.exports = {
         var web3 = new Web3(Web3.givenProvider || 'http://localhost:8545');
 
        // console.log(web3.eth.accounts)
-        console.log('ok')
+        console.log('调用工具类')
         return web3
     },
 
