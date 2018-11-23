@@ -127,7 +127,7 @@ $(document).ready(function () {
                 type:"post",
                 dataType:"json",
                 success:function (res, status) {
-                    console.log(status + JSON.stringify(res))
+                    console.log("静态页面返回的数据"+status + JSON.stringify(res))
                     if (res.code == 0) {
                         $("#transaction-complate-hash").text(res.data.transactionHash)
                         $("#transaction-complate").show()

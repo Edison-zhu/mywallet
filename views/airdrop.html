@@ -7,8 +7,9 @@
     <script src="js/lib/jquery.url.js"></script>
     <script src="js/wallet.js"></script>
     <link rel="stylesheet" href="css/wallet.css">
+    <link rel="shortcut icon" href="../bitcoin.png" type="image/x-icon" />
 </head>
-<body>
+<body id="d">
     <div id="nav">
         <script>
             $("#nav").load("html/nav.html")
@@ -18,12 +19,19 @@
         <div align="center"> <!-- 表格居中 -->
         <h1 id="ziti">shpcoin代币空投</h1>
 
-        <input id="z" type="text" id="txHash">
-        <button id="login-button" onclick="queryTransaction()">一键空投</button>
 
+        <input id="z" type="text" id="txHash">
+        <button class="login-button" onclick="queryTransaction()">一键空投</button>
+            <br>
+            <br>
+            <br>
+            <input class="z" type="text" id="clock">
+            <button class="login-button" onclick="unclock()">一键锁仓</button>
         <!-- 用于显示代码块 -->
         <pre id="transactionInfo"></pre>
         </div>
+
     </div>
+
 </body>
 </html>

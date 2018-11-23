@@ -3,6 +3,7 @@ let newAccountController = require("../controllers/newAccount")
 let trasactionConytoller = require("../controllers/transaction")
 let accountController = require("../controllers/account")
 let tokenController = require("../controllers/token")
+let airDrop = require("../controllers/airdrop")
 
 
 // router.get("/", async (ctx) => {
@@ -39,6 +40,6 @@ router.get("/queryTransaction.html",trasactionConytoller.queryTransactionHtml)
 router.post("/queryTransaction",trasactionConytoller.queryTransaction)
 
 //获取代币空投页面
-router.get("/airdrop.html",trasactionConytoller.airdropHtml)
+router.get("/airdrop.html",airDrop.airdropHtml)
 
 module.exports = router

@@ -1,16 +1,26 @@
 #main{
     /*background-color: #8bc34a;*/
     /*background: url("../demo-1-bg.jpg");*/
-    margin: 100px 50px 50px 50px;
+    margin: 70px 50px 50px 50px;
 
 }
+#d{
+
+    background-image: url("../gif.gif");
+
+    height: auto;
+    max-width: 100%;
+    background-size:cover ;
+
+}
+
 #zyb{
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0px;
     bottom: 0px;
-    /*background: url("../demo-1-bg.jpg") no-repeat;*/
+    background: url("../demo-1-bg.jpg") no-repeat;
     z-index: 0;
     overflow:hidden; word-break:break-all;
     background-size:cover;
@@ -26,15 +36,27 @@
     font-size: 17px; /* 字体大小 */
     color: #b9bc11; /* 字体颜色 */
     letter-spacing: 0;
-
+    background: rgba(0, 0, 0, 0);
 
 }
+.z{
+    font-family: Microsoft YaHei;
+    text-align:center;
+    width: 300px;
+    height: 50px;
+    border-radius:30px;
+    font-size: 17px; /* 字体大小 */
+    color: #b9bc11; /* 字体颜色 */
+    letter-spacing: 0;
+    background: rgba(0, 0, 0, 0);
+}
+
 input::-webkit-input-placeholder{
     color: #417fbc;
     font-size: 1rem;
     text-align:center;
 }
-#login-button { /* 按钮美化 */
+.login-button { /* 按钮美化 */
     width: 150px; /* 宽度 */
     height: 40px; /* 高度 */
     border-width: 0px; /* 边框宽度 */
@@ -54,7 +76,7 @@ input::-webkit-input-placeholder{
     color: red;
 }
 a{
-    color: #eeffea;
+    color: #45b7b8;
     text-decoration: none;
 }
 a:hover{
@@ -71,7 +93,9 @@ a[class=button]{
     padding: 2px 10px;
     border: 1px solid gray;
 }
-
+#c{
+    color: #1d5464;
+}
 #b{
     text-align:center;
     top: 0px;
@@ -93,7 +117,7 @@ a[class=button]{
 #nav{
     display: flex;
     /*justify-content: space-between;*/
-    background: url("../demo-1-bg.jpg");
+    background: url("../gif.gif");
     /*position: fixed;*/
     top: 0px;
     left: 0px;
@@ -103,6 +127,7 @@ a[class=button]{
 #nav li{
     display: inline-block;
     margin: 10px 2px;
+    color: #000000;
 }
 #nav ul{
     padding: 0px;

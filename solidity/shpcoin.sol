@@ -1,49 +1,50 @@
 pragma solidity ^0.4.16;
-
+//0x989c249ede0c137a48b07d28ff41b9a8517f5860
+// 代币部署地址0xa229591718df7462df2b88b4932467663d3d6793
 interface tokenRecipient { function receiveApproval(address _from, uint256 _value, address _token, bytes _extraData) external; }
 
 contract TokenERC20 {
-    // Public variables of the token
+    // Public variables of the token令牌的公共变量
     string public name;
     string public symbol;
     uint8 public decimals = 18;
-    // 18 decimals is the strongly suggested default, avoid changing it
+    //
     uint256 public totalSupply;
 
-    // This creates an array with all balances
+    // This creates an array with all balances这将创建一个包含所有余额的数组
     mapping (address => uint256) public balanceOf;
     mapping (address => mapping (address => uint256)) public allowance;
 
-    // This generates a public event on the blockchain that will notify clients
+    // This generates a public event on the blockchain that will notify clients这将在区块链上生成将通知客户的公共事件
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     // This generates a public event on the blockchain that will notify clients
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
-    // This notifies clients about the amount burnt
+    // This notifies clients about the amount burnt这会通知客户有关烧毁的金额
     event Burn(address indexed from, uint256 value);
 
     /**
-     * Constructor function
+     * Constructor function构造函数
      *
-     * Initializes contract with initial supply tokens to the creator of the contract
+     * Initializes contract with initial supply tokens to the creator of the contract将初始供应代币的合同初始化为合同的创建者
      */
     function TokenERC20(
         uint256 initialSupply,
         string tokenName,
         string tokenSymbol
     ) public {
-        totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
-        balanceOf[msg.sender] = totalSupply;                // Give the creator all initial tokens
-        name = tokenName;                                   // Set the name for display purposes
+        totalSupply = initialSupply * 10 ** uint256(decimals);  // 使用小数量更新总供应量
+        balanceOf[msg.sender] = totalSupply;                // 为创建者提供所有初始令牌
+        name = tokenName;                                   // 设置名称以用于显示目的
         symbol = tokenSymbol;                               // Set the symbol for display purposes
     }
 
     /**
-     * Internal transfer, only can be called by this contract
+     * Internal transfer, only can be called by this contract内部转移，只能由本合同调用
      */
     function _transfer(address _from, address _to, uint _value) internal {
-        // Prevent transfer to 0x0 address. Use burn() instead
+        // Prevent transfer to 0x0 address. Use burn() instead防止转移到0x0地址。请改用burn（）
         require(_to != 0x0);
         // Check if the sender has enough
         require(balanceOf[_from] >= _value);
@@ -90,12 +91,9 @@ contract TokenERC20 {
     }
 
     /**
-     * Set allowance for other address
-     *
-     * Allows `_spender` to spend no more than `_value` tokens on your behalf
-     *
-     * @param _spender The address authorized to spend
-     * @param _value the max amount they can spend
+     * 为其他地址设置津贴
+     * 授权花费的地址
+     * 他们可以花费的最大金额
      */
     function approve(address _spender, uint256 _value) public
     returns (bool success) {
@@ -105,13 +103,10 @@ contract TokenERC20 {
     }
 
     /**
-     * Set allowance for other address and notify
-     *
-     * Allows `_spender` to spend no more than `_value` tokens on your behalf, and then ping the contract about it
-     *
-     * @param _spender The address authorized to spend
-     * @param _value the max amount they can spend
-     * @param _extraData some extra information to send to the approved contract
+     *  为其他地址设置津贴并通知
+     * @param _spender The address authorized to spend 授权花费的地址
+     * @param _value the max amount they can spend 他们可以花费的最大金额
+     * @param _extraData some extra information to send to the approved contract 一些额外的信息发送到批准的合同
      */
     function approveAndCall(address _spender, uint256 _value, bytes _extraData)
     public
@@ -124,14 +119,12 @@ contract TokenERC20 {
     }
 
     /**
-     * Destroy tokens
-     *
-     * Remove `_value` tokens from the system irreversibly
-     *
-     * @param _value the amount of money to burn
+     * Destroy tokens 销毁令牌
+     * 来自系统的令牌不可逆转
+     * 烧钱的金额
      */
     function burn(uint256 _value) public returns (bool success) {
-        require(balanceOf[msg.sender] >= _value);   // Check if the sender has enough
+        require(balanceOf[msg.sender] >= _value);   // 检查发件人是否有足够的
         balanceOf[msg.sender] -= _value;            // Subtract from the sender
         totalSupply -= _value;                      // Updates totalSupply
         emit Burn(msg.sender, _value);
@@ -139,12 +132,7 @@ contract TokenERC20 {
     }
 
     /**
-     * Destroy tokens from other account
-     *
-     * Remove `_value` tokens from the system irreversibly on behalf of `_from`.
-     *
-     * @param _from the address of the sender
-     * @param _value the amount of money to burn
+     * Destroy tokens from other account 从其他帐户销毁令牌
      */
     function burnFrom(address _from, uint256 _value) public returns (bool success) {
         require(balanceOf[_from] >= _value);                // Check if the targeted balance is enough

@@ -19,7 +19,7 @@ module.exports = {
     },
     sendTransaction: async (ctx) => {
         let { fromaddress, toaddress, number, privatekey } = ctx.request.body
-        console.log(JSON.stringify(ctx.request.body))
+        console.log("这是交易信息"+JSON.stringify(ctx.request.body))
 
         let nonce = await web3.eth.getTransactionCount(fromaddress)
         let gasPrice = await web3.eth.getGasPrice()
@@ -44,8 +44,8 @@ module.exports = {
         var serializedTx = tx.serialize();
         let responseData;
         await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), function(err, data) {
-            console.log(err)
-            console.log(data)
+            console.log("transaction页面报错信息"+err)
+            console.log("transaction页面交易信息"+data)
 
             if (err) {
                 responseData = fail(err)

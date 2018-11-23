@@ -6,9 +6,10 @@
     <script src="js/lib/jquery.url.js"></script>
     <script src="js/wallet.js"></script>
     <link rel="stylesheet" href="css/wallet.css">
+    <link rel="shortcut icon" href="../bitcoin.png" type="image/x-icon" />
 </head>
 
-<body>
+<body id="d">
 <div id="nav">
     <script>
         console.log("==========")
@@ -16,15 +17,17 @@
 
     </script>
 </div>
+<div id="c">
 <div id="main">
     <h1>查询交易详情</h1>
 
-    <input type="text" id="txHash">
-    <button onclick="queryTransaction()">查询</button>
+    <input class="z" type="text" id="txHash">
+    <button id="login-button" onclick="queryTransaction()">查询</button>
 
     <!-- 用于显示代码块 -->
     <pre id="transactionInfo"></pre>
 
+</div>
 </div>
 </body>
 
